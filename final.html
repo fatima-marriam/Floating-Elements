@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ebay store</title>
+</head>
+
+<body>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400&display=swap');
+        @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+        @import url('https://img.eselt.de/assets/templates/vendor/bootstrap.v3.3.5.min.css');
+        @import url('https://img.eselt.de/fonts/vendor/font-awesome-5.1.0/css/all.css');
+        @import url('https://fonts.googleapis.com/css2?family=Material+Icons');
+
+
+
+        :root {
+            --white: #f9f9f9;
+            --yellow: #fa8d1d;
+        }
+
+        /* variables*/
+
+        /* Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--white);
+            font-family: "Poppins", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        #navbar .header {
+            background-color: var(--black);
+            box-shadow: 1px 1px 5px 0px var(--gray);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            
+        }
+
+        /* Logo */
+        .logo {
+            display: inline-block;
+            color: var(--white);
+            margin-left: 10px;
+        }
+
+        .nav {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            background-color: var(--black);
+            overflow: hidden;
+    
+
+        }
+
+        .menu a {
+            display: block;
+            padding: 30px;
+            color: var(--white);
+            text-shadow: 2px 2px 8px #4cb287;
+            font-size: 15px;
+            overflow: hidden;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background-color: var(--yellow);
+        }
+
+        .nav {
+            max-height: 0;
+            transition: max-height .5s ease-out;
+        }
+
+        .abc {
+
+            margin-left: 80px;
+            border-radius: 50%;
+            margin-top: 2%;
+            margin-bottom: 2%;
+        }
+
+        .hamb {
+            cursor: pointer;
+            float: right;
+            padding: 40px 20px;
+        }
+
+        /* Style label tag */
+
+        .hamb-line {
+            background: var(--white);
+            display: block;
+            height: 2px;
+            position: relative;
+            width: 24px;
+
+        }
+
+        /* Style span tag */
+
+        .hamb-line::before,
+        .hamb-line::after {
+            background: var(--white);
+            content: '';
+            display: block;
+            height: 100%;
+            position: absolute;
+            transition: all .2s ease-out;
+            width: 100%;
+        }
+
+        .hamb-line::before {
+            top: 5px;
+        }
+
+        .hamb-line::after {
+            top: -5px;
+        }
+
+        .side-menu {
+            display: none;
+        }
+
+        .side-menu:checked~nav {
+            max-height: 100%;
+        }
+
+        .side-menu:checked~.hamb .hamb-line {
+            background: transparent;
+        }
+
+        .side-menu:checked~.hamb .hamb-line::before {
+            transform: rotate(-45deg);
+            top: 0;
+        }
+
+        .side-menu:checked~.hamb .hamb-line::after {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .header {
+            background-color: var(--yellow);
+            box-shadow: 1px 1px 5px 0px var(--yellow);
+            position: sticky;
+            top: 0px;
+            width: 100%;
+            z-index: 100;
+        }
+
+        @media (max-width:760px) {
+            .abc {
+                height: 90px;
+                border-radius: 50%;
+                margin-top: 4%;
+                margin-bottom: 2%;
+
+            }
+
+        }
+
+        @media (max-width:480px) {
+            .abc {
+                height: 50px;
+                margin-left: 0px;
+                margin: 10px;
+                border-radius: 50%;
+            }
+
+            .menu a {
+                display: block;
+                padding: 30px;
+                color: var(--white);
+                text-shadow: 2px 2px 8px #4cb287;
+                font-size: 15px;
+                overflow: hidden;
+                text-decoration: none;
+                background-color: #fa8d1d;
+            }
+            
+        .colimg img {
+            display: block;
+            margin-left: 0px !important;
+           margin-left: auto !important;
+            margin-right: auto;
+            width: 80%;
+        }
+
+        }
+        @media (max-width:853px) {
+            .menu a {
+                display: block;
+                padding: 24px;
+                color: var(--white);
+                text-shadow: 2px 2px 8px #4cb287;
+                font-size: 15px;
+                overflow: hidden;
+                text-decoration: none;
+                background-color: #fa8d1d;
+            }
+        }
+        @media(max-width:650px)  {
+            .menu a {
+                display: block;
+                padding: 30px;
+                color: var(--white);
+                text-shadow: 2px 2px 8px #4cb287;
+                font-size: 15px;
+                overflow: hidden;
+                text-decoration: none;
+                background-color: #fa8d1d;
+            }
+            
+        }
+
+        @media (min-width: 768px) {
+            .nav {
+                max-height: none;
+                top: 0;
+                position: relative;
+                float: right;
+                width: fit-content;
+                background-color: transparent;
+            }
+
+            .menu li {
+                float: left;
+            }
+
+            .menu a:hover {
+                background-color: transparent;
+                color: #008280;
+
+
+            }
+
+            .hamb {
+                display: none;
+            }
+
+            .abc {
+                height: 60px;
+                border-radius: 50%;
+            }
+            
+        }
+
+        #navbar {
+            overflow: hidden;
+            background-color: var(--yellow);
+
+        }
+
+        .colimg img {
+            width:80%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 22px;
+
+        }
+
+        .para {
+            font-family: 'Oswald', sans-serif;
+            font-size: 20px;
+            margin-top: 32px;
+        }
+
+        h1 {
+            margin-top: 50px;
+            font-family: 'Oswald', sans-serif;
+            font-size: 26px;
+        }
+
+
+        /* Navbar links */
+        #navbar a {
+            float: left;
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px;
+            text-decoration: none;
+        }
+
+        /* Page content */
+        .content {
+            padding: 16px;
+        }
+
+        /* The sticky class is added to the navbar with JS when it reaches its scroll position */
+        .sticky {
+            position: fixed;
+            top: 0;
+            width: 100%;
+        }
+
+        /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+        .sticky+.content {
+            padding-top: 60px;
+        }
+
+        .aside {
+            background-color: #f7f7f7;
+        }
+
+        .aside-blocktitle {
+            font-size: 30px;
+            margin-bottom: 18px;
+            margin-top: 21px;
+            font-family: 'Oswald', sans-serif;
+
+        }
+
+        .aside-blockbody {
+            font-size: 17px;
+            font-family: 'Oswald', sans-serif;
+        }
+        .container-fluid{
+            background-color: #fa8d1d;
+            padding-bottom: 12px;
+        
+        }
+        .menulist .menuitem{
+            margin: auto;
+            text-align: center;
+        }
+        .menulist a{
+            color: #f7f7f7;
+            font-family: 'Oswald', sans-serif;
+            text-shadow: 2px 2px 8px #4cb287;
+            font-size: 17px;
+        }
+
+        .fluid{
+            margin-top: 40px;
+        }
+        .footer-block{
+            margin: auto;
+            text-align: center;
+            color: #f7f7f7;
+            font-family: 'Oswald', sans-serif;
+            text-shadow: 2px 2px 8px #4cb287;
+            font-size: 19px;
+        }
+        .lass1, .lass2, .lass3{
+        width: 50px;
+        height: 50px;
+        text-decoration: none;
+        color: azure;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.25);
+        transition: background 0.25s; 
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    .float-element:active{
+        background: yellowgreen;
+    }
+    .element-container{
+        position: fixed;
+        right: 0;
+        bottom: 35%;
+        z-index: 100;
+    }
+
+
+    /* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #fa8d1d; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: 
+#52bc89; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: 
+#52bc89; 
+}
+    </style>
+
+    <header class="header" id="myHeader" id="navbar">
+        <!-- Logo -->
+
+        <a href="#" class="logo"><img src="https://img.eselt.de/img/11666264_8JnwS3BoHXAe9owl/logo.png" class="abc"></a>
+        <!-- Hamburger icon -->
+        <input class="side-menu" type="checkbox" id="side-menu" />
+        <label class="hamb" for="side-menu"><span class="hamb-line"></span></label>
+        <!-- Menu -->
+        <nav class="nav">
+            <ul class="menu">
+                <li class="menuitem"><a href="https://www.ebay.co.uk/str/logikcctv" target="_blank" class=""> Our Store
+                    </a></li>
+                <li class="menuitem"><a href="https://www.ebay.co.uk/usr/Logikcctv" target="_blank" class=""> Seller
+                        Profile </a></li>
+                <li class="menuitem"><a
+                        href="https://feedback.ebay.co.uk/ws/eBayISAPI.dll?ViewFeedback2&amp;userid=Logikcctv"
+                        target="_blank" class=""> Feedback </a></li>
+                <li class="menuitem"><a
+                        href="https://my.ebay.co.uk/ws/eBayISAPI.dll?AcceptSavedSeller&amp;sellerid=Logikcctv&amp;ssPageName=STRK:MEFS:ADDSTR&amp;rt=nc"
+                        target="_blank" class=""> Save this seller </a></li>
+                <li class="menuitem"><a href="https://www.ebay.co.uk/contact/sendmsg?&amp;recipient=Logikcctv"
+                        target="_blank" class=""> Contact </a></li>
+            </ul>
+        </nav>
+    </header>
+<!-- ========================Floating Icon========================== -->
+
+<div class="element-container">
+    <span class="float-element lass1" style="background: #4cb287;
+    box-shadow: 0 20px 20px -10px rgb(76,178,135); color: azure; margin-bottom:5px; text-decoration: none;">
+        <i class="material-icons"><a style="text-decoration: none; color: azure;" href="tel:+4733378901" target="_blank">phone</a></i>
+    </span>
+    <span class="float-element lass2" style=" background: #c79927;
+    box-shadow: 0 20px 20px -10px rgb(199,153,35); color: azure; margin-bottom:5px ;">
+        <i class="material-icons"><a style="text-decoration: none; color: azure;" href="mailto:someone@example.com" target="_blank">email</a></i>
+    </span>
+    <span class="float-element lass3" style="background: #8ccaf2;
+    box-shadow: 0 20px 20px -10px rgb(140,202,242); color: azure;">
+        <i class="material-icons"><a style="text-decoration: none; color: azure;" href="https://facebook.com" target="_blank">facebook</a></i>
+    </span>
+</div>
+    
+<!-- Main Section -->
+
+    <div class="container">
+        <h1>Data cabinet shelf for DVR and NVR systems in
+            black color in 4u cabinet Size </h1>
+        <div class="row">
+            <div class="col-md-6 colimg">
+                <img src="https://img.eselt.de/img/11704735_QcSFO8B9IbNCVduQ/resized.jpg" alt="not found">
+            </div>
+            <div class=" col-md-6 para">
+                <p>&nbsp;Frame structure intended for self assembly,
+                    easy handling, transportation, to maximize save
+                    shipping cost</p>
+                <p>• Standing or wall mounting installation</p>
+                <p>• Easy mounting installation (patent)</p>
+                <p>• Removable side panels</p>
+                <p>• Holes for entering cable on both of top cover and
+                    bottom panel</p>
+                <p>• Toughened glass front door, turning angle is over
+                    180 degrees</p>
+                </br>
+                <li><i aria-hidden="true" class="fa fa-check"></i> 1x FLAT-PACK WALL
+                    MOUNT DATA CABINET BLACK 4U-450 -
+                    FLAT-CABINET-4U-450-BLACK </li>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================Gallery================ -->
+    </br>
+    </br>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="/w3images/lights.jpg" target="_blank">
+                        <img style="width:100%; height:270px; margin-bottom: 4px;" .i
+                            src="https://img.eselt.de/img/11704735_QcSFO8B9IbNCVduQ/resized.jpg" class="image-coverimg">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="/w3images/nature.jpg" target="_blank">
+                        <img style="width:100%; height:270px; margin-bottom: 4px;"
+                            src="https://img.eselt.de/img/11704735_QcSFO8B9IbNCVduQ/resized.jpg" class="image-coverimg">
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="thumbnail">
+                    <a href="/w3images/fjords.jpg" target="_blank">
+                        <img style="width:100%; height:270px; margin-bottom: 4px;"
+                            src="https://img.eselt.de/img/11704735_QcSFO8B9IbNCVduQ/resized.jpg" class="image-coverimg">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</br>
+    <!-- ===================================================== -->
+
+    <aside class="aside">
+        <div class="container">
+            <div id="aside-payment">
+                <div class="aside-block col-md-6">
+                    <div class="aside-blocktitle"><i class="fas fa-pound-sign"></i> Payment </div>
+                    <div class="aside-blockicons"><img style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/payment/paypal.png">&nbsp;<img  style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/payment/bank_transfer.png">&nbsp;<img  style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/payment/credit_card.png">
+                    </div>
+                    <div class="aside-blockbody">
+                        <div></div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside-shipping">
+                <div class="aside-block col-md-6">
+                    <div class="aside-blocktitle"><i class="fa fa-truck"></i> Shipping </div>
+                    <div class="aside-blockicons"><img  style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/shipping/royal_mail.png"> &nbsp;<img  style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/shipping/evri.png">&nbsp;<img  style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/shipping/dpd.png">&nbsp;<img  style="margin-bottom: 4px;"
+                            src="https://img.eselt.de/assets/templates/icons/shipping/free.png">
+                    </div>
+                </br>
+                    <div class="aside-blockbody">
+                        <div>
+                            <p style="background-color:rgb(250,247,250);">We will send the goods out
+                                within 1 working days after got your payment .</p>
+                            <p style="background-color:rgb(250,247,250);">Tracking No. will be
+                                provided within 1 business days after the shipment.</p>
+                            <p style="background-color:rgb(250,247,250);">We strive our best to
+                                provide you the most reliable, affordable way of shipping</p>
+                            <p style="background-color:rgb(250,247,250);">service. But sometimes it
+                                is highly depended on the shipping courier. If you do</p>
+                            <p style="background-color:rgb(250,247,250);">&nbsp;not receive your
+                                item on time, please feel free to contact us,thanks.<br></p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside-returns">
+                <div class="aside-block col-md-6">
+                    <div class="aside-blocktitle"><i class="fas fa-undo"></i> Returns </div>
+                    <div class="aside-blockbody">
+                        <div>
+                            <p style="background-color:rgb(250,247,250);">Item could be returned for
+                                refund or replacement within 14 days from the date you receive it.
+                            </p>
+
+                            <p style="background-color:rgb(250,247,250);">Returned merchandise must
+                                be unused, in original packaging and include all accessories.
+                                Original shipping costs are not refundable.</p>
+
+                            <p style="background-color:rgb(250,247,250);">Before sending back any
+                                return items, please contact with us for a correct return address.
+                            </p>
+
+                            <p style="background-color:rgb(250,247,250);">Any products returned to
+                                seller without an RMA will be void, and we will be sent back to the
+                                buyer at his/her expense.&nbsp;</p>
+
+                            <p style="background-color:rgb(250,247,250);">Return tracking number
+                                will be helpful to this process.</p>
+
+                            <p style="background-color:rgb(250,247,250);">Buyer is responsible for
+                                return Postage&nbsp;</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside-other">
+                <div class="aside-block col-md-6">
+                    <div class="aside-blocktitle"><i class="fa fa-info-circle"></i> Other </div>
+                    <div class="aside-blockbody">
+                        <div>
+                            <p style="background-color:rgb(250,247,250);">If you have any questions,
+                                please email to us . we will reply you no later than 24 hours</p>
+
+                            <p style="background-color:rgb(250,247,250);">If you are not satisfied
+                                by any reason, please feel free to contact us. Our customer service
+                                and tech support will do our best to offer you a proper solution.
+                            </p>
+
+                            <p style="background-color:rgb(250,247,250);">We appreciate your
+                                business greatly. If you are satisfied with our products and
+                                service, please leave some feedback for us .Your recognition will
+                                make us more confident to develop our business and serve you better.
+                            </p>
+
+                            <p style="background-color:rgb(250,247,250);">Your satisfaction, our
+                                pursuit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </br> </br> </br>
+    </aside>
+    
+    <!-- ======================footer======================= -->
+
+    <div class="container-fluid">
+
+        <div class="row fluid">
+            <div class="col-md-4">
+                <ul class="menulist">
+                    <li class="menuitem"><a href="https://www.ebay.co.uk/str/logikcctv" target="_blank" class=""> Our
+                            Store </a></li>
+                    <li class="menuitem"><a href="https://www.ebay.co.uk/usr/Logikcctv" target="_blank" class=""> Seller
+                            Profile </a></li>
+                    <li class="menuitem"><a
+                            href="https://feedback.ebay.co.uk/ws/eBayISAPI.dll?ViewFeedback2&amp;userid=Logikcctv"
+                            target="_blank" class=""> Feedback </a></li>
+                    <li class="menuitem"><a
+                            href="https://my.ebay.co.uk/ws/eBayISAPI.dll?AcceptSavedSeller&amp;sellerid=Logikcctv&amp;ssPageName=STRK:MEFS:ADDSTR&amp;rt=nc"
+                            target="_blank" class=""> Save this seller </a></li>
+                    <li class="menuitem"><a href="https://www.ebay.co.uk/contact/sendmsg?&amp;recipient=Logikcctv"
+                            target="_blank" class=""> Contact </a></li>
+                </ul>
+            </br>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-block">
+                    <div class="footer-blocktitle" style="color: #008280;"> Newsletter </div>
+                    <div class="footer-blockbody"> Don't miss any offers! We will inform you
+                        about our offers and promotions by email.<br><a
+                            href="https://my.ebay.co.uk/ws/eBayISAPI.dll?AcceptSavedSeller&amp;sellerid=Logikcctv&amp;ssPageName=STRK:MEFS:ADDSTR&amp;rt=nc"
+                            target="_blank" class="btn"><i class="fa fa-envelope"></i> Subscribe
+                            to newsletter </a></div>
+                </div>
+            </br>
+            </div>
+            <div class="col-md-4">
+                <div class="footer-block">
+                    <div class="footer-blocktitle" style="color: white;"> Contact </div>
+                    <div class="footer-blockbody footer_contact"><span><a
+                                href="https://www.ebay.co.uk/contact/sendmsg?&amp;recipient=Logikcctv"
+                                target="_blank"><i aria-hidden="true"
+                                    class="fa fa-phone-square"></i></a></span><br><span><a
+                                href="https://www.ebay.co.uk/contact/sendmsg?&amp;recipient=Logikcctv"
+                                target="_blank"><i aria-hidden="true" class="fa fa-envelope"></i></a></span></div>
+                </div>
+            </div>
+        </div>
+        <script>
+            // When the user scrolls the page, execute myFunction
+            window.onscroll = function () { myFunction() };
+
+            // Get the navbar
+            var navbar = document.getElementById("navbar");
+
+            // Get the offset position of the navbar
+            var sticky = navbar.offsetTop;
+
+            // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+            function myFunction() {
+                if (window.pageYOffset >= sticky) {
+                    navbar.classList.add("sticky")
+                } else {
+                    navbar.classList.remove("sticky");
+                }
+            }
+        </script>
+</body>
+
+</html>
