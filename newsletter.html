@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NewsLetter</title>
+</head>
+
+<body>
+  <style>
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css");
+    @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css");
+    @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400&display=swap');
+    @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css");
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    /* ======================navbar */
+    .navbar {
+      background-color: #f3f8f9;
+    }
+
+    /* ==========================================herosec */
+    .news {
+      background-image: url("https://images.unsplash.com/photo-1554774853-aae0a22c8aa4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+      height: 85vh;
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+    }
+
+    .hero {
+      position: absolute;
+      top: 102px;
+      left: 55px;
+    }
+
+    .hh {
+      position: relative;
+    }
+
+    .hero h3,
+    h1 {
+      color: #fa8d1d;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: 1px 1px rgba(250, 141, 29, 0.6);
+    }
+
+    /* ===============================newsletter */
+    form {
+      background: #fff;
+      display: flex;
+      width: fit-content;
+    }
+
+    form input {
+      border: 0;
+      outline: none;
+      padding: 10px 20px;
+      height: 70px;
+      width: 300px;
+      font-size: 16px;
+    }
+
+    form button {
+      background: #61b752;
+      border: none;
+      outline: none;
+      height: 70px;
+      width: 100px;
+      cursor: pointer;
+    }
+
+    #msg {
+      color: #fa8d1d;
+      margin-top: 10px;
+      display: block;
+      font-family: 'Oswald', sans-serif;
+      font-size: 19px;
+
+    }
+
+    @media (max-width:630px) {
+      form input {
+        border: 0;
+        outline: none;
+        /* padding: 10px 20px; */
+        height: 50px;
+        width: 165px;
+        font-size: 16px;
+      }
+
+      #msg {
+        font-size: 16px;
+      }
+
+      .hero {
+        top: 80px;
+        left: 20px;
+      }
+
+      form button {
+        background: #61b752;
+        border: none;
+        outline: none;
+        height: 70px;
+        width: 100px;
+        cursor: pointer;
+      }
+
+      .css1 img {
+        margin-bottom: 20px;
+        width: 80%;
+      }
+    }
+
+
+    /* ======================For auto type==================== */
+    /* span {
+      color: #fa8d1d;
+      margin-top: 10px;
+      font-family: 'Oswald', sans-serif;
+      font-size: 29px;
+    } */
+
+    /* ============scroll bar=================== */
+
+    /* width */
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+      background: #fa8d1d;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+      background:
+        #52bc89;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+      background:
+        #52bc89;
+    }
+
+    /* ======================Virtual=============== */
+    /* .container {
+      width: 1200px;
+     
+    } */
+
+    .ct {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* ===============================================hire */
+    .hir {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      color: #fa8d1d;
+      margin-top: 10px;
+    }
+
+    .vcc h3 {
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      color: #fa8d1d;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: 1px 1px rgba(250, 141, 29, 0.6);
+    }
+
+    .vcc ul li {
+      text-decoration: none;
+      font-family: 'Oswald', sans-serif;
+      display: flex;
+      justify-content: center;
+      text-align: center;
+      align-items: center;
+      font-size: 18px;
+
+    }
+
+    .hir h3 {
+      color: #fa8d1d;
+      font-family: 'Oswald', sans-serif;
+      text-shadow: 1px 1px rgba(250, 141, 29, 0.6);
+      margin-top: 90px;
+    }
+
+    .button {
+      border: none;
+      color: white;
+      padding: 16px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      transition-duration: 0.4s;
+      cursor: pointer;
+      transition: all 0.5s;
+    }
+
+    .button1 {
+      background-color: #fa8d1d;
+      color: #fff;
+      border: 2px solid #fa8d1d;
+    }
+
+    .button1:hover {
+      background-color: #4CAF50;
+      color: white;
+    }
+
+    .fre {
+      background-image: linear-gradient(to right, rgba(250, 141, 29, 1), rgba(255, 0, 0, 1));
+      min-height: 200px;
+    }
+    .fre button{
+      box-shadow: 0 0 2rem rgba(0,0,0,0.1);
+      transform: translateY(-3px) !important;
+  
+    }
+    @media(max-width:800px) {
+      .container .col-sm-6 {
+        width: 100%;
+      }
+    }
+/* ================for trail======================= */
+    #more {display: none;}
+    /* ===================== */
+    .fto{
+      min-height: 30px;
+      background-color: #f3f8f9;
+    }
+    /* ==================footer========================= */
+    .ftooer{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      margin-top: 20px;
+      gap: 1rem;
+      font-size: 23px;
+    }
+    .ftooer i{
+      color: #01306b;
+    }
+  </style>
+  <nav class="navbar navbar-expand-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img style="margin-left: 40px;"
+          src="https://cdn-ibaph.nitrocdn.com/UjtPhlxKzlzEorjYcPWLvgskhsWxeVpz/assets/images/optimized/wp-content/uploads/2022/10/adce0d32dfcd32dc61641fa47edd131b.Blue-Orange-e1665663698576.png"
+          alt="Logo" style="width:40px;">
+      </a>
+    </div>
+  </nav>
+  <!-- =================================Image============================================== -->
+  <div class="news container-fluid">
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="hh">
+          <div class="hero">
+            <h3>Grow Your Business with</h3>
+            <h1><span class="auto-type" style="color: #fa8d1d;
+          margin-top: 10px;
+          font-family: 'Oswald', sans-serif;
+          font-size: 35px;
+          "></span></h1>
+            <!-- <p>Subscribe For more details.</p> -->
+            <form name="submit-to-google-sheet">
+              <input type="email" name="Email" placeholder="Your Email id" required id="">
+              <button type="submit"><img
+                  src="https://icons-for-free.com/iconfiles/png/512/plane+airline+airplane+origame+paper+paper+plane+send+icon-1320086457003410702.png"
+                  alt="" srcset="" width="35px"></button>
+            </form>
+            <span id="msg"></span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-6"></div>
+    </div>
+  </div>
+
+  <!-- ===================================Virtal Asssistant============================= -->
+
+  <div class="container ">
+    <h3 style="color: #fa8d1d;
+    font-family: 'Oswald', sans-serif;
+    text-shadow: 1px 1px rgba(250, 141, 29, 0.6); margin: 20px;">Are you struggling to manage your online business?
+    </h3>
+    <div class="row ct">
+      <div class="col-sm-6 css1">
+        <img src="https://png.pngitem.com/pimgs/s/65-657631_transparent-virtual-assistant-png-chatbot-png-download.png"
+          alt="" srcset="">
+      </div>
+      <div class="col-sm-6">
+        <marquee direction="up" height="270px" scrollamount="3" behavior="scroll" loop="" vspace="15%"
+          style="animation-duration:480s;" onmouseover="this.stop();" onmouseout="this.start();">
+          <ul style="list-style-type:none;">
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;">
+              <span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold;font-family: 'Oswald', sans-serif;">Communication is key </span>As a
+              virtual assistant, you will be communicating with your clients primarily through
+              digital channels such as email, chat, and video conferencing. It's important to be responsive,
+              professional,
+              and clear in your communication.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Time management is crucial </span>
+              Virtual assistants are often responsible for managing their own schedules and
+              deadlines. It's important to be organized and prioritize tasks effectively to ensure that you meet your
+              clients' expectations and deliver work on time.</li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Technical skills are essential
+              </span> As a virtual assistant, you should be proficient in using various digital
+              tools and software such as project management software, communication tools, and time tracking software.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Confidentiality is important
+              </span> Virtual assistants often have access to sensitive information about their
+              clients' businesses and personal lives. It's important to maintain confidentiality and protect your
+              clients'
+              data at all times.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Continuous learning is necessary
+              </span> The virtual assistant industry is constantly evolving, with new tools
+              and technologies emerging all the time. As a virtual assistant, it's important to stay up-to-date with
+              industry trends and continuously learn new skills to stay competitive.
+            </li>
+            <li style="font-family: 'Oswald', sans-serif;"><span style="color: #fa8d1d;
+            font-size: 18px; font-weight: bold; font-family: 'Oswald', sans-serif;">Strong work ethic is critical
+              </span> As a virtual assistant, you are often working independently, without direct
+              supervision. It's important to have a strong work ethic and a sense of accountability to ensure that you
+              deliver high-quality work and meet your clients' expectations.
+            </li>
+          </ul>
+        </marquee>
+      </div>
+    </div>
+  </div>
+  <!-- -------------------------------hire------------------- -->
+  <div class="container hir">
+    <div class="row">
+      <div class="col-sm-6">
+        <h3>Here are some ways</br> That Virtual Assistant Increase Your Sales In E-commerce.</h3>
+        <button class="button button1">Contact Us</button>
+      </div>
+      <div class="col-sm-6">
+        <img style="width:85%" src="https://www.dbaadvisory.com/wp-content/uploads/2020/03/33-min-scaled.jpg" alt=""
+          srcset="">
+      </div>
+    </div>
+  </div>
+  <!-- ======================================video=============================== -->
+  <div class="container">
+    <div class="row rct">
+      <div class="col-sm-6">
+        <iframe width=100% height=350px src="https://www.youtube.com/embed/VajjXgeWQ7E"
+          title="Grow your online e-commerce business with Virtual Digital Man" frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </div>
+      <div class="col-sm-6 vcc">
+        <h3>Our Services</h3>
+        <ul style="list-style-type:circle;">
+          <li>Product Research and Sourcing</li>
+          <li>Listing Optimization</li>
+          <li>Order Processing and Fulfillment</li>
+          <li>Inventory Management </li>
+          <li>Customer Service and Support </li>
+          <li>PPC Management</li>
+          <li>Social Media Management</li>
+          <li>Advertising and Marketing Campaigns</li>
+          <li>A+ Content Creation</li>
+          <li>Maintain Account Health</li>
+          <li>Feedback Management</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <!-- ===============================flip card==================================== -->
+
+  <div class="container fre">
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="text" style="
+      margin-top: 20px;
+      text-align: center ;
+          text-transform: uppercase;
+          font-family: 'Oswald', sans-serif;
+          font-size: 3em;
+          font-weight: 500;
+          color: #f5f5f5;
+          text-shadow: 1px 1px 1px #919191,
+              1px 2px 1px #919191,
+              1px 3px 1px #919191,
+              1px 4px 1px #919191,
+              1px 5px 1px #919191,
+              1px 6px 1px #919191,
+              1px 7px 1px #919191,
+              1px 8px 1px #919191,
+              1px 9px 1px #919191,
+              1px 10px 1px #919191,
+          1px 18px 6px rgba(16,16,16,0.4),
+          1px 22px 10px rgba(16,16,16,0.2),
+          1px 25px 35px rgba(16,16,16,0.2),
+          1px 30px 60px rgba(16,16,16,0.4);
+      ">
+          Get Your Free</br> Trial Now!</h4>
+        <br>
+        <P class="moreText" style="font-family: 'Oswald', sans-serif; font-size: 16px; color: #f5f5f5; text-align: center;
+        "><span id="dots"></span><span id="more">In addition, we are now offering free testing services to new clients, so you can evaluate our <br>
+          capabilities and determine whether we are the right fit for your business
+          <br>
+          We offer flexible pricing and payment plans that are designed to fit any budget.
+          <br>
+          Contact us for more information»</span></p>
+        <button class="button button1 read-more-btn" onclick="myFunction()" id="myBtn"
+          style="border-radius: 2%; border: none; background-image: linear-gradient(to right,  rgba(255,0,0,1), rgba(250,141,29,1)); display: flex; margin: auto !important; align-items: center;">Read
+          More</button><br>
+      </div>   
+    </div>
+  </div>
+<!-- ============================Footer======================================= -->
+<div class="container-fluid fto">
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="ftooer">
+      <i class="fa-solid fa-square-phone-flip"></i>
+      <i class="fa-brands fa-square-facebook"></i>
+      <i class="fa-brands fa-square-instagram"></i>
+      <i class="fa-brands fa-linkedin"></i>
+      <i class="fa-sharp fa-solid fa-link"></i>
+      <i class="fa-sharp fa-solid fa-location-dot"></i>
+    </div>
+    <div style="color: #01306b; font-family: 'Oswald', sans-serif;
+    font-size: 1.01em; 
+    font-weight: 600; 
+    margin-left: 20px;
+    margin-bottom: 5px;">
+      Copyright © 2023 Virtual Digital Man, All rights reserved.
+    </div>
+    </div>
+  </div>
+</div>
+  <!-- script -->
+  <script>
+    function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+    
+      if (dots.style.display === "none") {
+        dots.style.display = "inline";
+        btnText.innerHTML = "Read more"; 
+        moreText.style.display = "none";
+      } else {
+        dots.style.display = "none";
+        btnText.innerHTML = "Read less"; 
+        moreText.style.display = "inline";
+      }
+    }
+    </script>
+  <script src="https://unpkg.com/typed.js@2.0.132/dist/typed.umd.js"></script>
+  <script>
+    var typed = new Typed(".auto-type", {
+      strings: ["Virtual Digital Man"],
+      typeSpeed: 150,
+      backSpeed: 150,
+      loop: true
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+    integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+    integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwLcQC76FvgIRV5qYylJk3JDJt3GcFmFFI96O5Qh1u16f7-egfbg_3d-TmI3KicjF0-/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+        .then(response => {
+          msg.innerHTML = "Thank You For Subscribing!"
+          setTimeout(function () {
+            msg.innerHTML = " "
+          }, 10000)
+          form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+  </script>
+</body>
+
+</html>
